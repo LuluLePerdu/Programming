@@ -1,0 +1,34 @@
+|===================================================================================================================|
+|														    |
+|							Atelier 1						    |
+|						     Ludwig-E.Dufour						    |
+|														    |
+|===================================================================================================================|
+
+Questions
+1. Comment est représenté, en mémoire centrale, la valeur de la « variableA », en hexadécimal, et pourquoi?
+2. Comment est représenté, en mémoire centrale, la valeur de la « variableB », en hexadécimal, et pourquoi?
+3. Que se passe-t-il suite à l'exécution de la ligne 1 et pourquoi?
+4. Quel registre est affecté peu importe l'instruction exécutée et pourquoi?
+5. Quel autre registre est affecté suite à l'instruction de la ligne 2 et pourquoi?
+6. Que se passe-t-il avec les valeurs des registres RAX et RBX suite aux instructions 10, 11, 12, 13 et pourquoi?
+7. Quel registre est affecté à notre insu lors de l'exécution de l'instruction à la ligne 5?
+8. Quelle est donc la principale utilité de la pile des programmes exécutés en mémoire centrale?
+
+Réponses
+1. La lecture se fait en rétro-compatibilité. de droite à gauche (little indian), 12345 est représenter par 3930 en héxa.
+2. Car avec la lecture en rétro-compatibilité de droite à gauche, avec les processus d'inversion des bits (le complément par deux) pour les entiers signés, D6 FF est la version en héxa.
+3. Initialise la variable rax à zéro, puis le RIP incrémente pour passer à la prochaine instruction.
+4. Le RIP, car c'est le instruction pointer, qui va pointer les lignes de codes à exécuter.
+5. LE RSP, le stack pointer, car la valeur va aller dans la pile, puis la pile va décrémenter en adressage, le stack pointer va nous pointer le dessus de la pile.
+6. Les valeurs de RAX et RBX vont se faire empiler dans la pile avec l'instruction 'push', puis elle se font mettre en mémoire pour ensuite se faire dépiler avec l'instruction 'pop'. Cela fait en sorte d'inverser les données avec le principe du Last In First Out
+7. Le RSP
+8. La pile sert lors à maintenir une structure, un ordre des appels et retours des fonctions/méthodes.
+
+Recherche
+1. Écrivez un paragraphe afin de vulgariser la technologie « CET » d'Intel.
+
+Réponse recherche*Rajouter le point sur le shadow stack, comparé les piles*
+1. La technologie CET d'Intel est une technologie de protection des données qui empêche les logiciels malveillants
+   d'accéder aux données sensibles. Elle fonctionne en isolant les processus susceptibles d'être infectés par un malware
+   et en leur fournissant une zone sécurisée où ils peuvent exécuter leurs tâches sans risque de compromettre le reste du système.
